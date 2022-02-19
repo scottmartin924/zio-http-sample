@@ -1,0 +1,1456 @@
+{
+    "version": "1.4.0",
+    "project": {
+        "name": "root",
+        "directory": "/Users/scott/Documents/zio-http-sample",
+        "workspaceDir": "/Users/scott/Documents/zio-http-sample",
+        "sources": [
+            "/Users/scott/Documents/zio-http-sample/src/main/scala",
+            "/Users/scott/Documents/zio-http-sample/src/main/scala-2.13",
+            "/Users/scott/Documents/zio-http-sample/src/main/scala-2",
+            "/Users/scott/Documents/zio-http-sample/src/main/java",
+            "/Users/scott/Documents/zio-http-sample/target/scala-2.13/src_managed/main"
+        ],
+        "dependencies": [
+            
+        ],
+        "classpath": [
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.8/scala-library-2.13.8.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio_2.13/1.0.13/zio_2.13-1.0.13.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/d11/zhttp_2.13/1.0.0.0-RC21/zhttp_2.13-1.0.0.0-RC21.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-config_2.13/2.0.0/zio-config_2.13-2.0.0.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-core_2.13/0.13.4/doobie-core_2.13-0.13.4.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-postgres_2.13/0.13.4/doobie-postgres_2.13-0.13.4.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-postgres-circe_2.13/0.13.4/doobie-postgres-circe_2.13-0.13.4.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-hikari_2.13/0.13.4/doobie-hikari_2.13-0.13.4.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-interop-cats_2.13/2.1.4.0/zio-interop-cats_2.13-2.1.4.0.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-config-magnolia_2.13/2.0.0/zio-config-magnolia_2.13-2.0.0.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-logging-slf4j_2.13/0.5.14/zio-logging-slf4j_2.13-0.5.14.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.0/log4j-slf4j-impl-2.17.0.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.0/log4j-api-2.17.0.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.0/log4j-core-2.17.0.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-stacktracer_2.13/1.0.13/zio-stacktracer_2.13-1.0.13.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/izumi-reflect_2.13/1.1.3/izumi-reflect_2.13-1.1.3.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-all/4.1.72.Final/netty-all-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-streams_2.13/1.0.13/zio-streams_2.13-1.0.13.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/incubator/netty-incubator-transport-native-io_uring/0.0.11.Final/netty-incubator-transport-native-io_uring-0.0.11.Final-linux-x86_64.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_2.13/2.6.0/scala-collection-compat_2.13-2.6.0.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-free_2.13/0.13.4/doobie-free_2.13-0.13.4.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/chuusai/shapeless_2.13/2.3.7/shapeless_2.13-2.3.7.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/typename_2.13/1.0.0/typename_2.13-1.0.0.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/co/fs2/fs2-io_2.13/2.5.6/fs2-io_2.13-2.5.6.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/postgresql/postgresql/42.2.20/postgresql-42.2.20.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-core_2.13/0.13.0/circe-core_2.13-0.13.0.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-parser_2.13/0.13.0/circe-parser_2.13-0.13.0.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-config-derivation_2.13/2.0.0/zio-config-derivation_2.13-2.0.0.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/propensive/magnolia_2.13/0.17.0/magnolia_2.13-0.17.0.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.8/scala-reflect-2.13.8.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-logging_2.13/0.5.14/zio-logging_2.13-0.5.14.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/izumi-reflect-thirdparty-boopickle-shaded_2.13/1.1.3/izumi-reflect-thirdparty-boopickle-shaded_2.13-1.1.3.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-buffer/4.1.72.Final/netty-buffer-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec/4.1.72.Final/netty-codec-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-dns/4.1.72.Final/netty-codec-dns-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-haproxy/4.1.72.Final/netty-codec-haproxy-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-http/4.1.72.Final/netty-codec-http-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-http2/4.1.72.Final/netty-codec-http2-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-memcache/4.1.72.Final/netty-codec-memcache-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-mqtt/4.1.72.Final/netty-codec-mqtt-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-redis/4.1.72.Final/netty-codec-redis-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-smtp/4.1.72.Final/netty-codec-smtp-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-socks/4.1.72.Final/netty-codec-socks-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-stomp/4.1.72.Final/netty-codec-stomp-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-xml/4.1.72.Final/netty-codec-xml-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-common/4.1.72.Final/netty-common-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-handler/4.1.72.Final/netty-handler-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-tcnative-classes/2.0.46.Final/netty-tcnative-classes-2.0.46.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-handler-proxy/4.1.72.Final/netty-handler-proxy-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-resolver/4.1.72.Final/netty-resolver-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-resolver-dns/4.1.72.Final/netty-resolver-dns-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport/4.1.72.Final/netty-transport-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-rxtx/4.1.72.Final/netty-transport-rxtx-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-sctp/4.1.72.Final/netty-transport-sctp-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-udt/4.1.72.Final/netty-transport-udt-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-classes-epoll/4.1.72.Final/netty-transport-classes-epoll-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-native-unix-common/4.1.72.Final/netty-transport-native-unix-common-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-classes-kqueue/4.1.72.Final/netty-transport-classes-kqueue-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-resolver-dns-classes-macos/4.1.72.Final/netty-resolver-dns-classes-macos-4.1.72.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-native-epoll/4.1.72.Final/netty-transport-native-epoll-4.1.72.Final-linux-x86_64.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-native-epoll/4.1.72.Final/netty-transport-native-epoll-4.1.72.Final-linux-aarch_64.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-native-kqueue/4.1.72.Final/netty-transport-native-kqueue-4.1.72.Final-osx-x86_64.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-native-kqueue/4.1.72.Final/netty-transport-native-kqueue-4.1.72.Final-osx-aarch_64.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-resolver-dns-native-macos/4.1.72.Final/netty-resolver-dns-native-macos-4.1.72.Final-osx-x86_64.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-resolver-dns-native-macos/4.1.72.Final/netty-resolver-dns-native-macos-4.1.72.Final-osx-aarch_64.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/incubator/netty-incubator-transport-classes-io_uring/0.0.11.Final/netty-incubator-transport-classes-io_uring-0.0.11.Final.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/co/fs2/fs2-core_2.13/2.5.6/fs2-core_2.13-2.5.6.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-core_2.13/2.6.1/cats-core_2.13-2.6.1.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-free_2.13/2.6.1/cats-free_2.13-2.6.1.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-effect_2.13/2.5.1/cats-effect_2.13-2.5.1.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-numbers_2.13/0.13.0/circe-numbers_2.13-0.13.0.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-jawn_2.13/0.13.0/circe-jawn_2.13-0.13.0.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/propensive/mercator_2.13/0.2.1/mercator_2.13-0.2.1.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scodec/scodec-bits_2.13/1.1.27/scodec-bits_2.13-1.1.27.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-kernel_2.13/2.6.1/cats-kernel_2.13-2.6.1.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/simulacrum-scalafix-annotations_2.13/0.5.4/simulacrum-scalafix-annotations_2.13-0.5.4.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/jawn-parser_2.13/1.0.0/jawn-parser_2.13-1.0.0.jar"
+        ],
+        "out": "/Users/scott/Documents/zio-http-sample/.bloop/root",
+        "classesDir": "/Users/scott/Documents/zio-http-sample/.bloop/root/scala-2.13/classes",
+        "resources": [
+            "/Users/scott/Documents/zio-http-sample/src/main/resources",
+            "/Users/scott/Documents/zio-http-sample/target/scala-2.13/resource_managed/main"
+        ],
+        "scala": {
+            "organization": "org.scala-lang",
+            "name": "scala-compiler",
+            "version": "2.13.8",
+            "options": [
+                
+            ],
+            "jars": [
+                "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.8/scala-library-2.13.8.jar",
+                "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.8/scala-compiler-2.13.8.jar",
+                "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.8/scala-reflect-2.13.8.jar",
+                "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/jline/jline/3.21.0/jline-3.21.0.jar",
+                "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/5.9.0/jna-5.9.0.jar"
+            ],
+            "analysis": "/Users/scott/Documents/zio-http-sample/target/streams/compile/bloopAnalysisOut/_global/streams/inc_compile_2.13.zip",
+            "setup": {
+                "order": "mixed",
+                "addLibraryToBootClasspath": true,
+                "addCompilerToClasspath": false,
+                "addExtraJarsToClasspath": false,
+                "manageBootClasspath": true,
+                "filterLibraryFromClasspath": true
+            }
+        },
+        "java": {
+            "options": [
+                
+            ]
+        },
+        "test": {
+            "frameworks": [
+                {
+                    "names": [
+                        "org.scalacheck.ScalaCheckFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs2.runner.Specs2Framework",
+                        "org.specs2.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalatest.tools.Framework",
+                        "org.scalatest.tools.ScalaTestFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "com.novocode.junit.JUnitFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "munit.Framework"
+                    ]
+                },
+                {
+                    "names": [
+                        "zio.test.sbt.ZTestFramework"
+                    ]
+                }
+            ],
+            "options": {
+                "excludes": [
+                    
+                ],
+                "arguments": [
+                    
+                ]
+            }
+        },
+        "platform": {
+            "name": "jvm",
+            "config": {
+                "home": "/Users/scott/.sdkman/candidates/java/11.0.11.9.1-amzn",
+                "options": [
+                    "-Duser.dir=/Users/scott/Documents/zio-http-sample"
+                ]
+            },
+            "mainClass": [
+                
+            ]
+        },
+        "resolution": {
+            "modules": [
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.13.8",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.8/scala-library-2.13.8.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.8/scala-library-2.13.8-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "dev.zio",
+                    "name": "zio_2.13",
+                    "version": "1.0.13",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "zio_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio_2.13/1.0.13/zio_2.13-1.0.13.jar"
+                        },
+                        {
+                            "name": "zio_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio_2.13/1.0.13/zio_2.13-1.0.13-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.d11",
+                    "name": "zhttp_2.13",
+                    "version": "1.0.0.0-RC21",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "zhttp_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/d11/zhttp_2.13/1.0.0.0-RC21/zhttp_2.13-1.0.0.0-RC21.jar"
+                        },
+                        {
+                            "name": "zhttp_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/d11/zhttp_2.13/1.0.0.0-RC21/zhttp_2.13-1.0.0.0-RC21-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "dev.zio",
+                    "name": "zio-config_2.13",
+                    "version": "2.0.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "zio-config_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-config_2.13/2.0.0/zio-config_2.13-2.0.0.jar"
+                        },
+                        {
+                            "name": "zio-config_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-config_2.13/2.0.0/zio-config_2.13-2.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.tpolecat",
+                    "name": "doobie-core_2.13",
+                    "version": "0.13.4",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "doobie-core_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-core_2.13/0.13.4/doobie-core_2.13-0.13.4.jar"
+                        },
+                        {
+                            "name": "doobie-core_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-core_2.13/0.13.4/doobie-core_2.13-0.13.4-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.tpolecat",
+                    "name": "doobie-postgres_2.13",
+                    "version": "0.13.4",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "doobie-postgres_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-postgres_2.13/0.13.4/doobie-postgres_2.13-0.13.4.jar"
+                        },
+                        {
+                            "name": "doobie-postgres_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-postgres_2.13/0.13.4/doobie-postgres_2.13-0.13.4-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.tpolecat",
+                    "name": "doobie-postgres-circe_2.13",
+                    "version": "0.13.4",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "doobie-postgres-circe_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-postgres-circe_2.13/0.13.4/doobie-postgres-circe_2.13-0.13.4.jar"
+                        },
+                        {
+                            "name": "doobie-postgres-circe_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-postgres-circe_2.13/0.13.4/doobie-postgres-circe_2.13-0.13.4-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.tpolecat",
+                    "name": "doobie-hikari_2.13",
+                    "version": "0.13.4",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "doobie-hikari_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-hikari_2.13/0.13.4/doobie-hikari_2.13-0.13.4.jar"
+                        },
+                        {
+                            "name": "doobie-hikari_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-hikari_2.13/0.13.4/doobie-hikari_2.13-0.13.4-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "dev.zio",
+                    "name": "zio-interop-cats_2.13",
+                    "version": "2.1.4.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "zio-interop-cats_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-interop-cats_2.13/2.1.4.0/zio-interop-cats_2.13-2.1.4.0.jar"
+                        },
+                        {
+                            "name": "zio-interop-cats_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-interop-cats_2.13/2.1.4.0/zio-interop-cats_2.13-2.1.4.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "dev.zio",
+                    "name": "zio-config-magnolia_2.13",
+                    "version": "2.0.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "zio-config-magnolia_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-config-magnolia_2.13/2.0.0/zio-config-magnolia_2.13-2.0.0.jar"
+                        },
+                        {
+                            "name": "zio-config-magnolia_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-config-magnolia_2.13/2.0.0/zio-config-magnolia_2.13-2.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "dev.zio",
+                    "name": "zio-logging-slf4j_2.13",
+                    "version": "0.5.14",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "zio-logging-slf4j_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-logging-slf4j_2.13/0.5.14/zio-logging-slf4j_2.13-0.5.14.jar"
+                        },
+                        {
+                            "name": "zio-logging-slf4j_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-logging-slf4j_2.13/0.5.14/zio-logging-slf4j_2.13-0.5.14-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.logging.log4j",
+                    "name": "log4j-slf4j-impl",
+                    "version": "2.17.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "log4j-slf4j-impl",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.0/log4j-slf4j-impl-2.17.0.jar"
+                        },
+                        {
+                            "name": "log4j-slf4j-impl",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.0/log4j-slf4j-impl-2.17.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.logging.log4j",
+                    "name": "log4j-api",
+                    "version": "2.17.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "log4j-api",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.0/log4j-api-2.17.0.jar"
+                        },
+                        {
+                            "name": "log4j-api",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.0/log4j-api-2.17.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.logging.log4j",
+                    "name": "log4j-core",
+                    "version": "2.17.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "log4j-core",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.0/log4j-core-2.17.0.jar"
+                        },
+                        {
+                            "name": "log4j-core",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.0/log4j-core-2.17.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "dev.zio",
+                    "name": "zio-stacktracer_2.13",
+                    "version": "1.0.13",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "zio-stacktracer_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-stacktracer_2.13/1.0.13/zio-stacktracer_2.13-1.0.13.jar"
+                        },
+                        {
+                            "name": "zio-stacktracer_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-stacktracer_2.13/1.0.13/zio-stacktracer_2.13-1.0.13-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "dev.zio",
+                    "name": "izumi-reflect_2.13",
+                    "version": "1.1.3",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "izumi-reflect_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/izumi-reflect_2.13/1.1.3/izumi-reflect_2.13-1.1.3.jar"
+                        },
+                        {
+                            "name": "izumi-reflect_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/izumi-reflect_2.13/1.1.3/izumi-reflect_2.13-1.1.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-all",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-all",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-all/4.1.72.Final/netty-all-4.1.72.Final.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "dev.zio",
+                    "name": "zio-streams_2.13",
+                    "version": "1.0.13",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "zio-streams_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-streams_2.13/1.0.13/zio-streams_2.13-1.0.13.jar"
+                        },
+                        {
+                            "name": "zio-streams_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-streams_2.13/1.0.13/zio-streams_2.13-1.0.13-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang.modules",
+                    "name": "scala-collection-compat_2.13",
+                    "version": "2.6.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-collection-compat_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_2.13/2.6.0/scala-collection-compat_2.13-2.6.0.jar"
+                        },
+                        {
+                            "name": "scala-collection-compat_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_2.13/2.6.0/scala-collection-compat_2.13-2.6.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.tpolecat",
+                    "name": "doobie-free_2.13",
+                    "version": "0.13.4",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "doobie-free_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-free_2.13/0.13.4/doobie-free_2.13-0.13.4.jar"
+                        },
+                        {
+                            "name": "doobie-free_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/doobie-free_2.13/0.13.4/doobie-free_2.13-0.13.4-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.chuusai",
+                    "name": "shapeless_2.13",
+                    "version": "2.3.7",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "shapeless_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/chuusai/shapeless_2.13/2.3.7/shapeless_2.13-2.3.7.jar"
+                        },
+                        {
+                            "name": "shapeless_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/chuusai/shapeless_2.13/2.3.7/shapeless_2.13-2.3.7-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.tpolecat",
+                    "name": "typename_2.13",
+                    "version": "1.0.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "typename_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/typename_2.13/1.0.0/typename_2.13-1.0.0.jar"
+                        },
+                        {
+                            "name": "typename_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/tpolecat/typename_2.13/1.0.0/typename_2.13-1.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "co.fs2",
+                    "name": "fs2-io_2.13",
+                    "version": "2.5.6",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "fs2-io_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/co/fs2/fs2-io_2.13/2.5.6/fs2-io_2.13-2.5.6.jar"
+                        },
+                        {
+                            "name": "fs2-io_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/co/fs2/fs2-io_2.13/2.5.6/fs2-io_2.13-2.5.6-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.postgresql",
+                    "name": "postgresql",
+                    "version": "42.2.20",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "postgresql",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/postgresql/postgresql/42.2.20/postgresql-42.2.20.jar"
+                        },
+                        {
+                            "name": "postgresql",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/postgresql/postgresql/42.2.20/postgresql-42.2.20-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.circe",
+                    "name": "circe-core_2.13",
+                    "version": "0.13.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "circe-core_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-core_2.13/0.13.0/circe-core_2.13-0.13.0.jar"
+                        },
+                        {
+                            "name": "circe-core_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-core_2.13/0.13.0/circe-core_2.13-0.13.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.circe",
+                    "name": "circe-parser_2.13",
+                    "version": "0.13.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "circe-parser_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-parser_2.13/0.13.0/circe-parser_2.13-0.13.0.jar"
+                        },
+                        {
+                            "name": "circe-parser_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-parser_2.13/0.13.0/circe-parser_2.13-0.13.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.zaxxer",
+                    "name": "HikariCP",
+                    "version": "4.0.3",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "HikariCP",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3.jar"
+                        },
+                        {
+                            "name": "HikariCP",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.slf4j",
+                    "name": "slf4j-api",
+                    "version": "1.7.32",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "slf4j-api",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar"
+                        },
+                        {
+                            "name": "slf4j-api",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "dev.zio",
+                    "name": "zio-config-derivation_2.13",
+                    "version": "2.0.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "zio-config-derivation_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-config-derivation_2.13/2.0.0/zio-config-derivation_2.13-2.0.0.jar"
+                        },
+                        {
+                            "name": "zio-config-derivation_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-config-derivation_2.13/2.0.0/zio-config-derivation_2.13-2.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.propensive",
+                    "name": "magnolia_2.13",
+                    "version": "0.17.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "magnolia_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/propensive/magnolia_2.13/0.17.0/magnolia_2.13-0.17.0.jar"
+                        },
+                        {
+                            "name": "magnolia_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/propensive/magnolia_2.13/0.17.0/magnolia_2.13-0.17.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-reflect",
+                    "version": "2.13.8",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-reflect",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.8/scala-reflect-2.13.8.jar"
+                        },
+                        {
+                            "name": "scala-reflect",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.8/scala-reflect-2.13.8-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "dev.zio",
+                    "name": "zio-logging_2.13",
+                    "version": "0.5.14",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "zio-logging_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-logging_2.13/0.5.14/zio-logging_2.13-0.5.14.jar"
+                        },
+                        {
+                            "name": "zio-logging_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-logging_2.13/0.5.14/zio-logging_2.13-0.5.14-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "dev.zio",
+                    "name": "izumi-reflect-thirdparty-boopickle-shaded_2.13",
+                    "version": "1.1.3",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "izumi-reflect-thirdparty-boopickle-shaded_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/izumi-reflect-thirdparty-boopickle-shaded_2.13/1.1.3/izumi-reflect-thirdparty-boopickle-shaded_2.13-1.1.3.jar"
+                        },
+                        {
+                            "name": "izumi-reflect-thirdparty-boopickle-shaded_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/izumi-reflect-thirdparty-boopickle-shaded_2.13/1.1.3/izumi-reflect-thirdparty-boopickle-shaded_2.13-1.1.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-buffer",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-buffer",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-buffer/4.1.72.Final/netty-buffer-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-buffer",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-buffer/4.1.72.Final/netty-buffer-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec/4.1.72.Final/netty-codec-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec/4.1.72.Final/netty-codec-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-dns",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-dns",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-dns/4.1.72.Final/netty-codec-dns-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-dns",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-dns/4.1.72.Final/netty-codec-dns-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-haproxy",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-haproxy",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-haproxy/4.1.72.Final/netty-codec-haproxy-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-haproxy",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-haproxy/4.1.72.Final/netty-codec-haproxy-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-http",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-http",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-http/4.1.72.Final/netty-codec-http-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-http",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-http/4.1.72.Final/netty-codec-http-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-http2",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-http2",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-http2/4.1.72.Final/netty-codec-http2-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-http2",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-http2/4.1.72.Final/netty-codec-http2-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-memcache",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-memcache",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-memcache/4.1.72.Final/netty-codec-memcache-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-memcache",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-memcache/4.1.72.Final/netty-codec-memcache-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-mqtt",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-mqtt",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-mqtt/4.1.72.Final/netty-codec-mqtt-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-mqtt",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-mqtt/4.1.72.Final/netty-codec-mqtt-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-redis",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-redis",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-redis/4.1.72.Final/netty-codec-redis-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-redis",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-redis/4.1.72.Final/netty-codec-redis-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-smtp",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-smtp",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-smtp/4.1.72.Final/netty-codec-smtp-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-smtp",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-smtp/4.1.72.Final/netty-codec-smtp-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-socks",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-socks",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-socks/4.1.72.Final/netty-codec-socks-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-socks",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-socks/4.1.72.Final/netty-codec-socks-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-stomp",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-stomp",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-stomp/4.1.72.Final/netty-codec-stomp-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-stomp",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-stomp/4.1.72.Final/netty-codec-stomp-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-xml",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-xml",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-xml/4.1.72.Final/netty-codec-xml-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-xml",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec-xml/4.1.72.Final/netty-codec-xml-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-common",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-common",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-common/4.1.72.Final/netty-common-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-common",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-common/4.1.72.Final/netty-common-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-handler",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-handler",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-handler/4.1.72.Final/netty-handler-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-handler",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-handler/4.1.72.Final/netty-handler-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-tcnative-classes",
+                    "version": "2.0.46.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-tcnative-classes",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-tcnative-classes/2.0.46.Final/netty-tcnative-classes-2.0.46.Final.jar"
+                        },
+                        {
+                            "name": "netty-tcnative-classes",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-tcnative-classes/2.0.46.Final/netty-tcnative-classes-2.0.46.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-handler-proxy",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-handler-proxy",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-handler-proxy/4.1.72.Final/netty-handler-proxy-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-handler-proxy",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-handler-proxy/4.1.72.Final/netty-handler-proxy-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-resolver",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-resolver",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-resolver/4.1.72.Final/netty-resolver-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-resolver",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-resolver/4.1.72.Final/netty-resolver-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-resolver-dns",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-resolver-dns",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-resolver-dns/4.1.72.Final/netty-resolver-dns-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-resolver-dns",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-resolver-dns/4.1.72.Final/netty-resolver-dns-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport/4.1.72.Final/netty-transport-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-transport",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport/4.1.72.Final/netty-transport-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-rxtx",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-rxtx",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-rxtx/4.1.72.Final/netty-transport-rxtx-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-transport-rxtx",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-rxtx/4.1.72.Final/netty-transport-rxtx-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-sctp",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-sctp",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-sctp/4.1.72.Final/netty-transport-sctp-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-transport-sctp",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-sctp/4.1.72.Final/netty-transport-sctp-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-udt",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-udt",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-udt/4.1.72.Final/netty-transport-udt-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-transport-udt",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-udt/4.1.72.Final/netty-transport-udt-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-classes-epoll",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-classes-epoll",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-classes-epoll/4.1.72.Final/netty-transport-classes-epoll-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-transport-classes-epoll",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-classes-epoll/4.1.72.Final/netty-transport-classes-epoll-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-native-unix-common",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-native-unix-common",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-native-unix-common/4.1.72.Final/netty-transport-native-unix-common-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-transport-native-unix-common",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-native-unix-common/4.1.72.Final/netty-transport-native-unix-common-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-classes-kqueue",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-classes-kqueue",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-classes-kqueue/4.1.72.Final/netty-transport-classes-kqueue-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-transport-classes-kqueue",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-transport-classes-kqueue/4.1.72.Final/netty-transport-classes-kqueue-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-resolver-dns-classes-macos",
+                    "version": "4.1.72.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-resolver-dns-classes-macos",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-resolver-dns-classes-macos/4.1.72.Final/netty-resolver-dns-classes-macos-4.1.72.Final.jar"
+                        },
+                        {
+                            "name": "netty-resolver-dns-classes-macos",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-resolver-dns-classes-macos/4.1.72.Final/netty-resolver-dns-classes-macos-4.1.72.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty.incubator",
+                    "name": "netty-incubator-transport-classes-io_uring",
+                    "version": "0.0.11.Final",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "netty-incubator-transport-classes-io_uring",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/incubator/netty-incubator-transport-classes-io_uring/0.0.11.Final/netty-incubator-transport-classes-io_uring-0.0.11.Final.jar"
+                        },
+                        {
+                            "name": "netty-incubator-transport-classes-io_uring",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/incubator/netty-incubator-transport-classes-io_uring/0.0.11.Final/netty-incubator-transport-classes-io_uring-0.0.11.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "co.fs2",
+                    "name": "fs2-core_2.13",
+                    "version": "2.5.6",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "fs2-core_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/co/fs2/fs2-core_2.13/2.5.6/fs2-core_2.13-2.5.6.jar"
+                        },
+                        {
+                            "name": "fs2-core_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/co/fs2/fs2-core_2.13/2.5.6/fs2-core_2.13-2.5.6-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "cats-core_2.13",
+                    "version": "2.6.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "cats-core_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-core_2.13/2.6.1/cats-core_2.13-2.6.1.jar"
+                        },
+                        {
+                            "name": "cats-core_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-core_2.13/2.6.1/cats-core_2.13-2.6.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "cats-free_2.13",
+                    "version": "2.6.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "cats-free_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-free_2.13/2.6.1/cats-free_2.13-2.6.1.jar"
+                        },
+                        {
+                            "name": "cats-free_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-free_2.13/2.6.1/cats-free_2.13-2.6.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "cats-effect_2.13",
+                    "version": "2.5.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "cats-effect_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-effect_2.13/2.5.1/cats-effect_2.13-2.5.1.jar"
+                        },
+                        {
+                            "name": "cats-effect_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-effect_2.13/2.5.1/cats-effect_2.13-2.5.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.checkerframework",
+                    "name": "checker-qual",
+                    "version": "3.5.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "checker-qual",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar"
+                        },
+                        {
+                            "name": "checker-qual",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.circe",
+                    "name": "circe-numbers_2.13",
+                    "version": "0.13.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "circe-numbers_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-numbers_2.13/0.13.0/circe-numbers_2.13-0.13.0.jar"
+                        },
+                        {
+                            "name": "circe-numbers_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-numbers_2.13/0.13.0/circe-numbers_2.13-0.13.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.circe",
+                    "name": "circe-jawn_2.13",
+                    "version": "0.13.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "circe-jawn_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-jawn_2.13/0.13.0/circe-jawn_2.13-0.13.0.jar"
+                        },
+                        {
+                            "name": "circe-jawn_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-jawn_2.13/0.13.0/circe-jawn_2.13-0.13.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.propensive",
+                    "name": "mercator_2.13",
+                    "version": "0.2.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "mercator_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/propensive/mercator_2.13/0.2.1/mercator_2.13-0.2.1.jar"
+                        },
+                        {
+                            "name": "mercator_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/propensive/mercator_2.13/0.2.1/mercator_2.13-0.2.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scodec",
+                    "name": "scodec-bits_2.13",
+                    "version": "1.1.27",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scodec-bits_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scodec/scodec-bits_2.13/1.1.27/scodec-bits_2.13-1.1.27.jar"
+                        },
+                        {
+                            "name": "scodec-bits_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scodec/scodec-bits_2.13/1.1.27/scodec-bits_2.13-1.1.27-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "cats-kernel_2.13",
+                    "version": "2.6.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "cats-kernel_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-kernel_2.13/2.6.1/cats-kernel_2.13-2.6.1.jar"
+                        },
+                        {
+                            "name": "cats-kernel_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/cats-kernel_2.13/2.6.1/cats-kernel_2.13-2.6.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "simulacrum-scalafix-annotations_2.13",
+                    "version": "0.5.4",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "simulacrum-scalafix-annotations_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/simulacrum-scalafix-annotations_2.13/0.5.4/simulacrum-scalafix-annotations_2.13-0.5.4.jar"
+                        },
+                        {
+                            "name": "simulacrum-scalafix-annotations_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/simulacrum-scalafix-annotations_2.13/0.5.4/simulacrum-scalafix-annotations_2.13-0.5.4-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "jawn-parser_2.13",
+                    "version": "1.0.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "jawn-parser_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/jawn-parser_2.13/1.0.0/jawn-parser_2.13-1.0.0.jar"
+                        },
+                        {
+                            "name": "jawn-parser_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/typelevel/jawn-parser_2.13/1.0.0/jawn-parser_2.13-1.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.13.8",
+                    "configurations": "optional",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.8/scala-library-2.13.8.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.8/scala-library-2.13.8-sources.jar"
+                        }
+                    ]
+                }
+            ]
+        },
+        "tags": [
+            "library"
+        ]
+    }
+}

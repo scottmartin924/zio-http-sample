@@ -2,3 +2,6 @@
 /logs
 /datadog_logs
 /.idea
+/.metals
+/project/target/
+/.metals/

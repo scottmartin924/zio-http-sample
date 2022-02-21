@@ -11,9 +11,6 @@ import zio.{Has, Task, ZIO, ZLayer, ZManaged}
 import zio.interop.catz._
 
 object Database {
-
-  implicit val handle = LogHandler.jdkLogHandler
-
   object Connection {
     type TransactorEnv = Has[Transactor[Task]]
 

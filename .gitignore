@@ -3,5 +3,6 @@
 /datadog_logs
 /.idea
 /.metals
-/project/target/
 /.metals/
+/project/**/target
+project/.bloop

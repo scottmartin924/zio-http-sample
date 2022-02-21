@@ -6,7 +6,7 @@ ThisBuild / organization     := "com.example"
 ThisBuild / organizationName := "example"
 
 val zioVersion = "1.0.13"
-val zHttpVersion = "1.0.0.0-RC21"
+val zHttpVersion = "1.0.0.0-RC22"
 lazy val root = (project in file("."))
   .settings(
     name := "zio-http-sample",
@@ -14,6 +14,8 @@ lazy val root = (project in file("."))
       "dev.zio" %% "zio" % zioVersion,
       "io.d11" %% "zhttp" % zHttpVersion,
       "dev.zio" %% "zio-config" % "2.0.0",
+      "dev.zio" %% "zio-json" % "0.1.5",
+      "io.github.kitlangton" %% "zio-magic" % "0.3.11",
       "org.tpolecat" %% "doobie-core" % "0.13.4",
       "org.tpolecat" %% "doobie-postgres" % "0.13.4",
       "org.tpolecat" %% "doobie-postgres-circe" % "0.13.4",

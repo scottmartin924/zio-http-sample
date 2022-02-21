@@ -5,19 +5,26 @@ import zio.logging.slf4j.Slf4jLogger
 
 object LoggingConfiguration {
 
-  private val logFormat = "[correlation-id = %s] %s"
+  private val logFormat = "[correlation-id = %s, user-id = %s] %s"
 
   // FIXME This is how it's done in onedrop-api, but not sure it's right
-  private val correleationId = LogAnnotation[String](
+  val correleationId = LogAnnotation[String](
     name = "correlationId",
     initialValue = "undefined-correlation-id",
     combine = (_, newVal) => newVal,
     render = identity
   )
-  val live = Slf4jLogger.makeWithAnnotationsAsMdc(List(correleationId))
+  val userIdAnnotation = LogAnnotation[String](
+    name = "userId",
+    initialValue = "undefined-user-id",
+    combine = (_, newValue) => newValue,
+    render = identity
+  )
+//  val live = Slf4jLogger.makeWithAnnotationsAsMdc(List(correleationId, userIdAnnotation))
 
-//  val live = Slf4jLogger.make { (ctx, msg) =>
-//    val correlationId = LogAnnotation.CorrelationId.render(ctx.get(LogAnnotation.CorrelationId))
-//    logFormat.format(correlationId, msg)
-//  }
+  val live = Slf4jLogger.make { (ctx, msg) =>
+    val correlationId = correleationId.render(ctx.get(correleationId))
+    val userId = userIdAnnotation.render(ctx.get(userIdAnnotation))
+    logFormat.format(correlationId, userId, msg)
+  }
 }

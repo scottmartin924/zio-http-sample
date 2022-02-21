@@ -1,40 +1,63 @@
-import repository.{DataCategoryRepository, Database, Repository}
-import zhttp.http.Http
+import cats.implicits.catsSyntaxOptionId
+import configuration.ApplicationConfig.WebConfig.WebConfigEnv
+import repository.{Database, Repository, TodoRepository}
+import zhttp.http.{Http, HttpApp, Method, Request, Response}
 import zhttp.service.Server
 import zio._
 import zio.blocking._
 import configuration.ApplicationConfig._
 import configuration.LoggingConfiguration
-import doobie.util.log.LogHandler
-import org.slf4j.{Logger, LoggerFactory}
-import zio.console.putStrLn
+import controller.TodoController
+import controller.TodoController.TodoControllerEnv
+import error.ErrorHandling.{ErrorResponse, bodyParser, exceptionHandler, unhandledError}
+import resource.Todo
+import shapeless.syntax.inject.InjectSyntax
+import zhttp.http.Middleware.{debug, status}
 import zio.logging._
+import zhttp.http._
+import zio.json._
+import zio.magic._
 
 object Main extends App {
 
   /* TODO
-   - Really need to get all types in one spot it seems like...if not we'll be importing all over the place
-   - logging (get doobie logging working too...ah...maybe it's jdbc logging that does that?...yeah logging still isn't at all right)......logging is so messed up
-   - integrate circe (or look @ zio-json)
-   - try to implement authentication (I think this will be hard and annoying)
-
-   To fix: I think we can use package objects to help get type aliases all over the place? Honestly I don't really know what package objects do
+   - try to implement authentication (I think this will be hard and annoying...use Middleware.auth)
    */
 
-  val app = Http.text("Hello world!")
-
-//  override def run(args: List[String]): URIO[zio.ZEnv, ExitCode] = {
-//    Server.start(8080, app).exitCode
-//  }
+  val app = Http.collectZIO[Request] {
+    case Method.GET -> !! / "todo" => TodoController.getAll
+    case Method.GET -> !! / "todo" / id => TodoController.getById(id).catchAllDefect(defect => Task.succeed(Response.text("oops")))
+    case Method.DELETE -> !! / "todo" / id => TodoController.delete(id)
+    case req @ Method.POST -> !! / "todo" => bodyParser[Todo, TodoControllerEnv](req, TodoController.create)
+    case req @ Method.PATCH -> !! / "todo" / id => bodyParser[Todo, TodoControllerEnv](req, TodoController.update(id, _))
+  }
 
   override def run(args: List[String]): URIO[zio.ZEnv, ExitCode] = {
-    implicit val handle = LogHandler.jdkLogHandler
-    val logger = LoggerFactory.getLogger("logger")
-    logger.info("ehllo")
-    val env = ((DatabaseConfig.live ++ Blocking.live) >>> Database.Connection.live >>> Repository.live >>> DataCategoryRepository.live) ++ zio.console.Console.live ++ LoggingConfiguration.live
-    DataCategoryRepository.getById(3)
-      .tap(dc => putStrLn(dc.toString))
-      .tap(dc => log.info(s"Welll...here we are: $dc"))
-      .provideLayer(env).exitCode
+    // Server
+    // FIXME Get port from web config
+    val server = Server.start(8080, app.catchAll(exceptionHandler) @@ debug)
+
+    // ZIO 1 way
+//    val config = DatabaseConfig.live ++ WebConfig.live ++ Blocking.live
+//    val repos = Database.Connection.live >>> Repository.live >>> TodoRepository.live >>> TodoController.live
+//    val env = (config >>> repos) ++ zio.console.Console.live ++ LoggingConfiguration.live
+//    val envWithDebug = env ++ console.Console.live ++ clock.Clock.live
+//
+//    server.provideLayer(envWithDebug).exitCode
+
+    // zio-magic way
+    val magic = server.inject(
+      DatabaseConfig.live,
+      Blocking.live,
+      Database.Connection.live,
+      Repository.live,
+      TodoRepository.live,
+      TodoController.live,
+      zio.console.Console.live,
+      LoggingConfiguration.live,
+      clock.Clock.live
+    )
+
+    magic.exitCode
   }
 }

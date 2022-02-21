@@ -12,6 +12,12 @@ object ApplicationConfig {
   object DatabaseConfig {
     type DbConfigEnv = Has[DatabaseConfig]
     private val dbConfig: ConfigDescriptor[DatabaseConfig] = descriptor[DatabaseConfig]
-    val live = ZConfig.fromPropertiesFile("conf/application.properties", dbConfig)
+    val live = ZConfig.fromPropertiesFile("src/main/resources/application.properties", dbConfig)
+  }
+
+  case class WebConfig(port: Int)
+  object WebConfig {
+    type WebConfigEnv = Has[WebConfig]
+    val live = ZConfig.fromPropertiesFile("src/main/resources/application.properties", descriptor[WebConfig])
   }
 }

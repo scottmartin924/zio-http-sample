@@ -1,13 +1,16 @@
 package controller
 
+import authentication.AuthenticationService
+import authentication.AuthenticationService.AuthServiceEnv
 import cats.implicits.catsSyntaxOptionId
 import error.ErrorHandling.{BusinessException, ErrorResponse}
+import pdi.jwt.JwtClaim
 import repository.Repository
 import resource.Todo
 import resource.Todo._
 import zhttp.http.{Response, Status}
-import zio.{Has, RIO, ZIO, ZLayer}
-import zio.json.EncoderOps
+import zio.{Has, RIO, Task, ZIO, ZLayer}
+import zio.json.{DecoderOps, EncoderOps}
 
 object TodoController {
   // FIXME Should probably be programming to interfaces better here (e.g. have a trait for what the controller should have, etc)
@@ -20,8 +23,13 @@ object TodoController {
       .orElseFail(BusinessException(Status.BAD_REQUEST, code = "not-found", details = s"Failed to parse $long to Long"))
 
     // FIXME So much code duplication w/ the entity matches
-    // FIXME So much toJson...that happens in API atm too, but would be nice to avoid
-    def getAll = repo.getAll.map(todos => Response.json(todos.toJson).setStatus(Status.OK))
+    // FIXME So much toJson...that happens in API atm too, but would be nice to avoid...I don't think a middleware can handle it, but a separate httpapp could...not sure if it's worth it?
+    def getAll(jwt: JwtClaim) = {
+      // FIXMe BAD IF-ELSE!!
+      println(AuthenticationService.getRoles(jwt))
+      if (AuthenticationService.getRoles(jwt).contains("admin")) repo.getAll.map(todos => Response.json(todos.toJson).setStatus(Status.OK))
+      else Task.fail(BusinessException(Status.FORBIDDEN, code = "insufficient-permissions", "Must have admin permissions to view all todos"))
+    }
     def getById(id: String) = for {
       longId <- toLongOrFail(id)
       entity <- repo.getById(longId)
@@ -55,7 +63,7 @@ object TodoController {
 
   val live = ZLayer.fromService[Repository[Long, Todo], TodoController.Service](repo => new Service(repo))
 
-  def getAll: TodoControllerRIO = ZIO.accessM(_.get.getAll)
+  def getAll(jwt: JwtClaim): TodoControllerRIO = ZIO.accessM(_.get.getAll(jwt))
   def getById(id: String): TodoControllerRIO = ZIO.accessM(_.get.getById(id))
   def create(todo: Todo): TodoControllerRIO = ZIO.accessM(_.get.create(todo))
   def update(id: String, todo: Todo): TodoControllerRIO = ZIO.accessM(_.get.update(id, todo))

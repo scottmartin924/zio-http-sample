@@ -1,6 +1,6 @@
-import cats.implicits.catsSyntaxOptionId
-import configuration.ApplicationConfig.WebConfig.WebConfigEnv
-import repository.{Database, Repository, TodoRepository}
+import authentication.AuthenticationService
+import authentication.AuthenticationService.AuthServiceEnv
+import repository.{Database, Repository, TodoRepository, UserCredentialRepository}
 import zhttp.http.{Http, HttpApp, Method, Request, Response}
 import zhttp.service.Server
 import zio._
@@ -9,9 +9,9 @@ import configuration.ApplicationConfig._
 import configuration.LoggingConfiguration
 import controller.TodoController
 import controller.TodoController.TodoControllerEnv
-import error.ErrorHandling.{ErrorResponse, bodyParser, exceptionHandler, unhandledError}
-import resource.Todo
-import shapeless.syntax.inject.InjectSyntax
+import error.ErrorHandling.{bodyParser, exceptionHandler}
+import pdi.jwt.JwtClaim
+import resource.{Todo, UserCredential}
 import zhttp.http.Middleware.{debug, status}
 import zio.logging._
 import zhttp.http._
@@ -21,11 +21,20 @@ import zio.magic._
 object Main extends App {
 
   /* TODO
-   - try to implement authentication (I think this will be hard and annoying...use Middleware.auth)
+   - Look into taking care of
+      - json serde in middleware (so we can definitely have it incoming as zio.Json, but is that really very useful?)
+      - path parameter type validation (although maybe not a huge deal)
+   - Could probably do with a service layer between repo and controller...need to decide how that would look: is the
+     repo returning connectionios that the service cna compose to db transactions or repo returns Task and repo's in
+     charge of transactions (I think the former...also I think put the sql in companion of object of the resource...sort of like a built-in DAO)
    */
 
-  val app = Http.collectZIO[Request] {
-    case Method.GET -> !! / "todo" => TodoController.getAll
+  val login = Http.collectZIO[Request] {
+    case req @ Method.POST -> !! / "login" => bodyParser[UserCredential, AuthServiceEnv](req, AuthenticationService.createJwt)
+  }
+
+  def app(jwt: JwtClaim) = Http.collectZIO[Request] {
+    case Method.GET -> !! / "todo" => TodoController.getAll(jwt)
     case Method.GET -> !! / "todo" / id => TodoController.getById(id).catchAllDefect(defect => Task.succeed(Response.text("oops")))
     case Method.DELETE -> !! / "todo" / id => TodoController.delete(id)
     case req @ Method.POST -> !! / "todo" => bodyParser[Todo, TodoControllerEnv](req, TodoController.create)
@@ -35,7 +44,11 @@ object Main extends App {
   override def run(args: List[String]): URIO[zio.ZEnv, ExitCode] = {
     // Server
     // FIXME Get port from web config
-    val server = Server.start(8080, app.catchAll(exceptionHandler) @@ debug)
+
+    // This uses authentication as a separate httpapp which gives you the jwt after...could also try out
+    // the auth Middleware, but I'm not sure the jwtclaim gets passed to the downstream app then??
+    val finalApp = login ++ AuthenticationService.authentication(Http.forbidden("None shall pass"), app)
+    val server = Server.start(8080, finalApp.catchAll(exceptionHandler) @@ debug)
 
     // ZIO 1 way
 //    val config = DatabaseConfig.live ++ WebConfig.live ++ Blocking.live
@@ -55,7 +68,9 @@ object Main extends App {
       TodoController.live,
       zio.console.Console.live,
       LoggingConfiguration.live,
-      clock.Clock.live
+      clock.Clock.live,
+      UserCredentialRepository.live,
+      AuthenticationService.live
     )
 
     magic.exitCode

@@ -14,7 +14,6 @@ lazy val root = (project in file("."))
       "dev.zio" %% "zio" % zioVersion,
       "io.d11" %% "zhttp" % zHttpVersion,
       "dev.zio" %% "zio-config" % "2.0.0",
-      "dev.zio" %% "zio-json" % "0.1.5",
       "io.github.kitlangton" %% "zio-magic" % "0.3.11",
       "org.tpolecat" %% "doobie-core" % "0.13.4",
       "org.tpolecat" %% "doobie-postgres" % "0.13.4",
@@ -28,10 +27,10 @@ lazy val root = (project in file("."))
       "org.apache.logging.log4j" % "log4j-api" % "2.17.0",
       "org.apache.logging.log4j" % "log4j-core" % "2.17.0",
       "com.github.jwt-scala" %% "jwt-core" % "9.0.4", // Honestly no idea if this is a good jwt library to use
-      // FIXME Remove zio-json and just use circe...zio-json seems immature and documentation is awful
       "io.circe" %% "circe-core" % "0.14.1",
       "io.circe" %% "circe-parser" % "0.14.1",
       "io.circe" %% "circe-optics" % "0.14.1",
+      "io.circe" %% "circe-generic" % "0.14.1",
       "dev.zio" %% "zio-test" % zioVersion % Test,
       "io.d11" %% "zhttp-test" % zHttpVersion % Test
     ),

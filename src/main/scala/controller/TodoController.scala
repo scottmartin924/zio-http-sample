@@ -4,13 +4,13 @@ import authentication.AuthenticationService
 import authentication.AuthenticationService.AuthServiceEnv
 import cats.implicits.catsSyntaxOptionId
 import error.ErrorHandling.{BusinessException, ErrorResponse}
+import io.circe.syntax.EncoderOps
 import pdi.jwt.JwtClaim
 import repository.Repository
 import resource.Todo
 import resource.Todo._
 import zhttp.http.{Response, Status}
 import zio.{Has, RIO, Task, ZIO, ZLayer}
-import zio.json.{DecoderOps, EncoderOps}
 
 object TodoController {
   // FIXME Should probably be programming to interfaces better here (e.g. have a trait for what the controller should have, etc)
@@ -18,7 +18,7 @@ object TodoController {
   type TodoControllerRIO = RIO[TodoControllerEnv, Response]
 
   class Service(repo: Repository[Long, Todo]) {
-    // FIXME Not sure if this should be here...really I don't think it should have to be anywhere...for some reason no catchAllDefect?
+    // FIXME Not sure if this should be here...really I don't think it should have to be anywhere...for some reason no catchAllDefect? Could also just wrap things in a try and do fromTry
     private def toLongOrFail(long: String): ZIO[Any, BusinessException, Long] = ZIO.fromOption(long.toLongOption)
       .orElseFail(BusinessException(Status.BAD_REQUEST, code = "not-found", details = s"Failed to parse $long to Long"))
 
@@ -27,7 +27,7 @@ object TodoController {
     def getAll(jwt: JwtClaim) = {
       // FIXMe BAD IF-ELSE!!
       println(AuthenticationService.getRoles(jwt))
-      if (AuthenticationService.getRoles(jwt).contains("admin")) repo.getAll.map(todos => Response.json(todos.toJson).setStatus(Status.OK))
+      if (AuthenticationService.getRoles(jwt).contains("admin")) repo.getAll.map(todos => Response.json(todos.asJson.noSpaces).setStatus(Status.OK))
       else Task.fail(BusinessException(Status.FORBIDDEN, code = "insufficient-permissions", "Must have admin permissions to view all todos"))
     }
     def getById(id: String) = for {
@@ -35,19 +35,19 @@ object TodoController {
       entity <- repo.getById(longId)
     } yield {
       entity match {
-        case None => Response.json(ErrorResponse(code = "not-found", details = s"Todo with id $longId was not found".some).toJson).setStatus(Status.NOT_FOUND)
-        case Some(todo) => Response.json(todo.toJson).setStatus(Status.OK)
+        case None => Response.json(ErrorResponse(code = "not-found", details = s"Todo with id $longId was not found".some).asJson.noSpaces).setStatus(Status.NOT_FOUND)
+        case Some(todo) => Response.json(todo.asJson.noSpaces).setStatus(Status.OK)
       }
     }
 
-    def create(todo: Todo) = repo.create(todo).map(todo => Response.json(todo.toJson).setStatus(Status.OK))
+    def create(todo: Todo) = repo.create(todo).map(todo => Response.json(todo.asJson.noSpaces).setStatus(Status.OK))
     def update(id: String, todo: Todo) = for {
       longId <- toLongOrFail(id)
       entity <- repo.update(longId, todo)
     } yield {
       entity match {
-        case None => Response.json(ErrorResponse(code = "not-found", details = s"Todo with id $longId was not found".some).toJson).setStatus(Status.NOT_FOUND)
-        case Some(todo) => Response.json(todo.toJson).setStatus(Status.OK)
+        case None => Response.json(ErrorResponse(code = "not-found", details = s"Todo with id $longId was not found".some).asJson.noSpaces).setStatus(Status.NOT_FOUND)
+        case Some(todo) => Response.json(todo.asJson.noSpaces).setStatus(Status.OK)
       }
     }
     def delete(id: String) = for {
@@ -55,8 +55,8 @@ object TodoController {
       entity <- repo.delete(longId)
     } yield {
       entity match {
-        case None => Response.json(ErrorResponse(code = "not-found", details = s"Todo with id $longId was not found".some).toJson).setStatus(Status.NOT_FOUND)
-        case Some(todo) => Response.json(todo.toJson).setStatus(Status.OK)
+        case None => Response.json(ErrorResponse(code = "not-found", details = s"Todo with id $longId was not found".some).asJson.noSpaces).setStatus(Status.NOT_FOUND)
+        case Some(todo) => Response.json(todo.asJson.noSpaces).setStatus(Status.OK)
       }
     }
   }

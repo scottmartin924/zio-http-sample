@@ -1,9 +1,11 @@
 package error
 
 import cats.implicits.catsSyntaxOptionId
+import io.circe.generic.semiauto.{deriveDecoder, deriveEncoder}
+import io.circe.syntax.EncoderOps
+import io.circe.{Decoder, Encoder, parser}
 import zhttp.http.{Http, HttpApp, Request, Response, Status}
 import zio.{Has, Task, ZIO}
-import zio.json.{DecoderOps, DeriveJsonDecoder, DeriveJsonEncoder, EncoderOps, JsonDecoder, JsonEncoder}
 import zio.logging.{Logging, log}
 
 import java.net.http.HttpResponse
@@ -15,13 +17,13 @@ object ErrorHandling {
   // Consider if this really belongs in resource
   case class ErrorResponse(code: String, details: Option[String])
   object ErrorResponse {
-    implicit val encoder: JsonEncoder[ErrorResponse] = DeriveJsonEncoder.gen[ErrorResponse]
-    implicit val decoder: JsonDecoder[ErrorResponse] = DeriveJsonDecoder.gen[ErrorResponse]
+    implicit val encoder: Encoder[ErrorResponse] = deriveEncoder[ErrorResponse]
+    implicit val decoder: Decoder[ErrorResponse] = deriveDecoder[ErrorResponse]
   }
 
   // FIXME This is awful...would like both to be able to ignore this and also to override it if want custom effect or response
   val defaultBodyParserErrorHandler: (String, String) => ZIO[Logging, Throwable, Response] = (body, err) => log.info(s"bodyParserErrorCatcher: Failed to parse body $body")
-    .as(Response.json(ErrorResponse(code = "invalid-request", details = s"Failed to deserialize body: $err".some).toJson).setStatus(Status.BAD_REQUEST))
+    .as(Response.json(ErrorResponse(code = "invalid-request", details = s"Failed to deserialize body: $err".some).asJson.noSpaces).setStatus(Status.BAD_REQUEST))
 
   // FIXME This should be middleware
   // FIXME I really don't think this should require an environment type parameter, but I can't seem to make it go away
@@ -34,10 +36,10 @@ object ErrorHandling {
    * @tparam R the environment type for success
    * @return
    */
-  def bodyParser[A, R](req: Request, success: A => ZIO[R, Throwable, Response])(implicit decoder: JsonDecoder[A]): ZIO[R with Logging, Throwable, Response] = {
+  def bodyParser[A, R](req: Request, success: A => ZIO[R, Throwable, Response])(implicit decoder: Decoder[A]): ZIO[R with Logging, Throwable, Response] = {
     req.getBodyAsString.flatMap { body =>
-      body.fromJson[A] match {
-        case Left(err) => defaultBodyParserErrorHandler(body, err)
+      parser.decode[A](body) match {
+        case Left(err) => defaultBodyParserErrorHandler(body, err.getMessage)
         case Right(value) => success(value)
       }
     }
@@ -52,11 +54,11 @@ object ErrorHandling {
 
   private val businessExceptionHandler = (err: BusinessException) => {
     val errorResponse = ErrorResponse(err.code, details = s"Error: ${err.details}".some)
-    Http.response(Response.json(errorResponse.toJson).setStatus(err.status))
+    Http.response(Response.json(errorResponse.asJson.toString()).setStatus(err.status))
   }
 
   private val unhandledError = (err: Throwable) => {
     val errorResponse = ErrorResponse("internal-error", err.getMessage.some)
-    Http.response(Response.json(errorResponse.toJson).setStatus(Status.INTERNAL_SERVER_ERROR))
+    Http.response(Response.json(errorResponse.asJson.toString()).setStatus(Status.INTERNAL_SERVER_ERROR))
   }
 }

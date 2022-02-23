@@ -15,7 +15,6 @@ import resource.{Todo, UserCredential}
 import zhttp.http.Middleware.{debug, status}
 import zio.logging._
 import zhttp.http._
-import zio.json._
 import zio.magic._
 
 object Main extends App {

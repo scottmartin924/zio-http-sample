@@ -7,7 +7,7 @@ object LoggingConfiguration {
 
   private val logFormat = "[correlation-id = %s, user-id = %s] %s"
 
-  // FIXME This is how it's done in onedrop-api, but not sure it's right
+  // FIXME This is how it's done in onedrop-api
   val correleationId = LogAnnotation[String](
     name = "correlationId",
     initialValue = "undefined-correlation-id",

@@ -15,7 +15,7 @@ object ApplicationConfig {
     val live = ZConfig.fromPropertiesFile("src/main/resources/application.properties", dbConfig)
   }
 
-  case class WebConfig(port: Int)
+  case class WebConfig(secret: String)
   object WebConfig {
     type WebConfigEnv = Has[WebConfig]
     val live = ZConfig.fromPropertiesFile("src/main/resources/application.properties", descriptor[WebConfig])

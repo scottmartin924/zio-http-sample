@@ -24,7 +24,7 @@ JWT on the `X-Access-Token` header. To get a JWT use the `POST /login` endpoint 
 or any of the other username/password pairs from `db_setup.sql`
 
 ### Endpoints
-The exposed endpoints with sample requests and required roles (see [Roles](#roles) for more info) are given below:
+The exposed endpoints and required roles (see [Roles](#roles) for more info) are given below:
 
 - `POST /login`
 ```json

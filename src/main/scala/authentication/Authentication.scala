@@ -23,7 +23,7 @@ object Authentication {
   private val algo = JwtAlgorithm.HS512
 
 
-  def authentication[R, E](fail: HttpApp[R, E], success: JwtClaim => HttpApp[R, E]): HttpApp[R with AuthServiceEnv, E] = {
+  def authenticationApp[R, E](fail: HttpApp[R, E], success: JwtClaim => HttpApp[R, E]): HttpApp[R with AuthServiceEnv, E] = {
     Http.fromFunctionZIO[Request] { request =>
       val job = for {
         (_, token) <- ZIO.fromOption(request.getHeader(AUTH_HEADER)).orElseFail(new Exception(s"Missing or expired $AUTH_HEADER")) // Probably custom exception would be better
@@ -33,23 +33,19 @@ object Authentication {
     }.flatten
   }
 
-  // Playing around w/ a syntax for permission checks by role
-  // ideal-ish: roles("admin") ## TodoController.getAll    // then add ability to test multiple roles
-  // FIXME Make a roleselector dsl that allows thisRole OR (thatRole and anotherRole) etc
-  def roles(roles: String*)(implicit jwt: JwtClaim): RIO[AuthServiceEnv, JwtClaim] = {
+  def roles(roleQuery: RoleQuery)(implicit jwt: JwtClaim): RIO[AuthServiceEnv, JwtClaim] = {
     for {
       tokenRoles <- Authentication.getRoles(jwt)
-      jwt <- if (roles.intersect(tokenRoles.toSeq).nonEmpty) Task.succeed(jwt)
-              else Task.fail(BusinessException(Status.FORBIDDEN, code = "insufficient-permissions", s"Must have one of the following permissions to access: ${roles.mkString(", ")}"))
+      _ <- if (roleQuery.isEligible(tokenRoles)) Task.succeed(jwt)
+            else Task.fail(BusinessException(Status.FORBIDDEN, code = "insufficient-permissions", s"Must satisfy the role requirement: $roleQuery"))
     } yield jwt
   }
 
+  // Note: I'm no longer convinced this is useful...might as well just use zio operators unless we need something special
   type RoleCheckResponse = RIO[AuthServiceEnv, JwtClaim]
-
   implicit class RoleBuilder(roleCheck: RoleCheckResponse) {
-    // FIXME Not sure this is the best symbol choice.......open to better ideas
-    def !@![R](z: ZIO[R, Throwable, Response]): RIO[R with AuthServiceEnv, Response] = {
-      roleCheck *> z
+    def #!#[R](appAction: ZIO[R, Throwable, Response]): RIO[R with AuthServiceEnv, Response] = {
+      roleCheck *> appAction
     }
   }
 

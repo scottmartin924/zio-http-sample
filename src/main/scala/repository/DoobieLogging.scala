@@ -5,9 +5,10 @@ import doobie.util.log.{ExecFailure, ProcessingFailure, Success}
 import org.slf4j.LoggerFactory
 
 // FIXME I feel like we (in onedrop-api) must have a different approach to logging every statement? Maybe a common jdbc logger?
+// To get logging for sql statements need to have this implicit loghandler anywhere the connectionio is created...that's not my favorite...probably something smarter
 trait DoobieLogging {
 
-  // TODO Consider if this is really what we want for the logging
+  // This is just a simple logger
   implicit val logHandler: LogHandler = {
     val logger = LoggerFactory.getLogger(getClass.getName)
     LogHandler {

@@ -5,9 +5,10 @@ import doobie.ConnectionIO
 import doobie.implicits.toSqlInterpolator
 import io.circe.{Decoder, Encoder}
 import io.circe.generic.semiauto.{deriveDecoder, deriveEncoder}
+import repository.DoobieLogging
 
 case class UserCredential(userId: Option[Int] = implicits.none[Int], username: String, password: String)
-object UserCredential {
+object UserCredential extends DoobieLogging {
   implicit val decoder: Decoder[UserCredential] = deriveDecoder[UserCredential]
   implicit val encoder: Encoder[UserCredential] = deriveEncoder[UserCredential]
 

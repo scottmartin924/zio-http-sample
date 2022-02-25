@@ -16,6 +16,8 @@ import zhttp.http.Middleware.{debug, status}
 import zio.logging._
 import zhttp.http._
 import zio.magic._
+import Authentication._
+import authentication.RoleQuery._
 
 object Main extends App {
 
@@ -33,19 +35,20 @@ object Main extends App {
     case req @ Method.POST -> !! / "login" => bodyParser[UserCredential, AuthServiceEnv](req, Authentication.createJwt)
   }
 
+  // NOTE: Could use #!# as an alias for *> basically or come up with another operator if we need something more specific
   def app(implicit jwt: JwtClaim) = Http.collectZIO[Request] {
-    case Method.GET -> !! / "todo" => Authentication.roles("admin", "playdates") !@! TodoController.getAll
+    case Method.GET -> !! / "todo" => roles("admin" or "supervisor") *> TodoController.getAll
     case Method.GET -> !! / "todo" / id => TodoController.getById(id)
-    case Method.DELETE -> !! / "todo" / id => TodoController.delete(id)
-    case req @ Method.POST -> !! / "todo" => bodyParser[Todo, TodoControllerEnv](req, TodoController.create)
-    case req @ Method.PATCH -> !! / "todo" / id => bodyParser[Todo, TodoControllerEnv](req, TodoController.update(id, _))
+    case Method.DELETE -> !! / "todo" / id => roles("admin") *> roles("admin" or "") *> TodoController.delete(id)
+    case req @ Method.POST -> !! / "todo" => roles("admin" or "supervisor") *> bodyParser[Todo, TodoControllerEnv](req, TodoController.create)
+    case req @ Method.PATCH -> !! / "todo" / id => roles("admin") *> bodyParser[Todo, TodoControllerEnv](req, TodoController.update(id, _))
   }
 
   override def run(args: List[String]): URIO[zio.ZEnv, ExitCode] = {
     // Server
     // This uses authentication as a separate httpapp which gives you the jwt after...could also try out
     // the auth Middleware, but I'm not sure the jwtclaim gets passed to the downstream app then??
-    val finalApp = login ++ Authentication.authentication(Http.forbidden("None shall pass"), app(_))
+    val finalApp = login ++ Authentication.authenticationApp(Http.forbidden("None shall pass"), app(_))
 
     // Useful thing to remember app1 <> app2 means if app1 fails then app2 handles it (might be good for general error catching instead of exceptionHandler at some point)
     val server = Server.start(8080, finalApp.catchAll(exceptionHandler) @@ debug)

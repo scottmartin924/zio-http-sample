@@ -38,8 +38,8 @@ create table user_role
 );
 
 INSERT INTO public.user_role (user_id, role) VALUES (1, 'admin');
-INSERT INTO public.user_role (user_id, role) VALUES (2, 'dog');
-INSERT INTO public.user_role (user_id, role) VALUES (2, 'toys');
-INSERT INTO public.user_role (user_id, role) VALUES (3, 'dog');
-INSERT INTO public.user_role (user_id, role) VALUES (3, 'toys');
-INSERT INTO public.user_role (user_id, role) VALUES (2, 'playdates');
+INSERT INTO public.user_role (user_id, role) VALUES (2, 'test');
+INSERT INTO public.user_role (user_id, role) VALUES (2, 'supervisor');
+INSERT INTO public.user_role (user_id, role) VALUES (3, 'test');
+INSERT INTO public.user_role (user_id, role) VALUES (2, 'moderator');
+INSERT INTO public.user_role (user_id, role) VALUES (3, 'reader');

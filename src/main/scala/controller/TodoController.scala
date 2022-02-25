@@ -17,7 +17,7 @@ object TodoController {
   type TodoControllerEnv = Has[TodoController.Service]
   type TodoControllerRIO = RIO[TodoControllerEnv, Response]
 
-  class Service(repo: Repository[Long, Todo], authService: AuthenticationService) {
+  class Service(repo: Repository[Long, Todo]) {
     // FIXME Not sure if this should be here...really I don't think it should have to be anywhere...for some reason no catchAllDefect? Could also just wrap things in a try and do fromTry
     private def toLongOrFail(long: String): ZIO[Any, BusinessException, Long] = ZIO.fromOption(long.toLongOption)
       .orElseFail(BusinessException(Status.BAD_REQUEST, code = "not-found", details = s"Failed to parse $long to Long"))
@@ -57,7 +57,7 @@ object TodoController {
     }
   }
 
-  val live = ZLayer.fromServices[Repository[Long, Todo], AuthenticationService, TodoController.Service]((repo, auth) => new Service(repo, auth))
+  val live = ZLayer.fromServices[Repository[Long, Todo], AuthenticationService, TodoController.Service]((repo, auth) => new Service(repo))
 
   def getAll: TodoControllerRIO = ZIO.accessM(_.get.getAll)
   def getById(id: String): TodoControllerRIO = ZIO.accessM(_.get.getById(id))

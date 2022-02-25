@@ -1,7 +1,7 @@
 import authentication.Authentication
 import authentication.Authentication.AuthServiceEnv
 import repository.{Database, Repository, TodoRepository, UserCredentialRepository}
-import zhttp.http.{Http, HttpApp, Method, Request, Response}
+import zhttp.http.{Http, HttpApp, Method, Request, Response, _}
 import zhttp.service.Server
 import zio._
 import zio.blocking._
@@ -13,7 +13,6 @@ import pdi.jwt.JwtClaim
 import resource.{Todo, UserCredential}
 import zhttp.http.Middleware.{debug, status}
 import zio.logging._
-import zhttp.http._
 import zio.magic._
 import Authentication._
 import authentication.RoleQuery._
@@ -31,7 +30,7 @@ object Main extends App {
    */
 
   val login = Http.collectZIO[Request] {
-    case req @ Method.POST -> !! / "login" => log.info(s"Login request") *> bodyParser[UserCredential, AuthServiceEnv](req, Authentication.createJwt)
+    case req @ Method.POST -> !! / "login" => log.info(s"Login request") *> bodyParser[UserCredential](req) >>= Authentication.createJwt
   }
 
   // NOTE: Could use #!# as an alias for *> basically or come up with another operator if we need something more specific
@@ -39,17 +38,18 @@ object Main extends App {
     case Method.GET -> !! / "todo" => roles("admin" or "supervisor") *> TodoController.getAll
     case Method.GET -> !! / "todo" / id => TodoController.getById(id)
     case Method.DELETE -> !! / "todo" / id => roles("admin") *> roles("admin" or "") *> TodoController.delete(id)
-    case req @ Method.POST -> !! / "todo" => roles("admin" or "supervisor") *> bodyParser[Todo, Has[TodoController.Service] with Logging](req, TodoController.create)
-    case req @ Method.PATCH -> !! / "todo" / id => roles("admin") *> bodyParser[Todo, Has[TodoController.Service] with Logging](req, TodoController.update(id, _))
+    case req @ Method.POST -> !! / "todo" => roles("admin" or "supervisor") *> bodyParser[Todo](req) >>= TodoController.create
+    case req @ Method.PATCH -> !! / "todo" / id => roles("admin") *> bodyParser[Todo](req).flatMap(TodoController.update(id, _)) // NOTE: I'm not sure why but >>= w/ the the partial application fails here
   }
 
   override def run(args: List[String]): URIO[zio.ZEnv, ExitCode] = {
     // Server
     // This uses authentication as a separate httpapp which gives you the jwt after...could also try out
-    // the auth Middleware, but I'm not sure the jwtclaim gets passed to the downstream app then??
+    // the auth Middleware, but I'm not sure the jwtclaim gets passed to the downstream app then...and _I think_ we need
+    // that to do role-specific authorizations since I don't think the middleware will know the matching path yet
     val finalApp = login ++ Authentication.authenticationApp(Http.forbidden("None shall pass"), app(_))
 
-    // Useful thing to remember app1 <> app2 means if app1 fails then app2 handles it (might be good for general error catching instead of exceptionHandler at some point)
+    // ## Useful thing to remember app1 <> app2 means if app1 fails then app2 handles it (might be good for general error catching instead of exceptionHandler at some point)
     val server = Server.start(8080, finalApp.catchAll(exceptionHandler) @@ debug)
 
     // ZIO 1 way (alright....I can see why zio-magic is nicer)

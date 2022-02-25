@@ -5,10 +5,8 @@ import io.circe.generic.semiauto.{deriveDecoder, deriveEncoder}
 import io.circe.syntax.EncoderOps
 import io.circe.{Decoder, Encoder, parser}
 import zhttp.http.{Http, HttpApp, Request, Response, Status}
-import zio.{Has, Task, ZIO}
+import zio.ZIO
 import zio.logging.{Logging, log}
-
-import java.net.http.HttpResponse
 
 object ErrorHandling {
 
@@ -21,26 +19,16 @@ object ErrorHandling {
     implicit val decoder: Decoder[ErrorResponse] = deriveDecoder[ErrorResponse]
   }
 
-  // FIXME This is awful...would like both to be able to ignore this and also to override it if want custom effect or response
-  val defaultBodyParserErrorHandler: (String, String) => ZIO[Logging, Throwable, Response] = (body, err) => log.info(s"bodyParserErrorCatcher: Failed to parse body $body")
-    .as(Response.json(ErrorResponse(code = "invalid-request", details = s"Failed to deserialize body: $err".some).asJson.noSpaces).setStatus(Status.BAD_REQUEST))
+  val defaultBodyParserErrorHandler: (String, String) => ZIO[Logging, Throwable, Nothing] = (body, err) =>
+    log.info(s"bodyParserErrorCatcher: Failed to parse body $body") *> ZIO.fail(BusinessException(Status.BAD_REQUEST, "invalid-request", details = s"Failed to deserialize body: $err"))
 
-  // FIXME This should be middleware
-  /**
-   *
-   * @param req the request
-   * @param success the action to take on success. Input is the parsed bod, output
-   *                should be effects to execute
-   * @tparam A the type to parse the request to
-   * @tparam R the environment type for success
-   * @return
-   */
-  // FIXME I really don't think this should require an environment type parameter, but I can't seem to make it go away
-  def bodyParser[A, R](req: Request, success: A => ZIO[R, Throwable, Response])(implicit decoder: Decoder[A]): ZIO[R with Logging, Throwable, Response] = {
+  // TODO Consider allowing to pass in a bodyParserErrorHandler instead of defaulting...one tricky thing is we'd need to be
+  //  somewhat strict on the environment that allows (or pass in an environment parameter...and know that the requirements on the generated httpapp might change)
+  def bodyParser[A](req: Request)(implicit decoder: Decoder[A]): ZIO[Logging, Throwable, A] = {
     req.getBodyAsString.flatMap { body =>
       parser.decode[A](body) match {
         case Left(err) => defaultBodyParserErrorHandler(body, err.getMessage)
-        case Right(value) => success(value)
+        case Right(value) => ZIO.succeed(value)
       }
     }
   }

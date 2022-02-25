@@ -68,7 +68,7 @@ object Authentication {
 
     override def encode(user: String, roles: List[String]): Task[String] = {
       // Looks like this jwt library issuedNow requires an implicit java clock :(. Could maybe override that w/ zio
-      val claim = JwtClaim(s"""{"user": "$user", "roles": ${roles.asJson.noSpaces}}""").issuedNow.expiresIn(120)
+      val claim = JwtClaim(s"""{"user": "$user", "roles": ${roles.asJson.noSpaces}}""").issuedNow.expiresIn(config.tokenDuration)
       Task.succeed(Jwt.encode(claim, config.secret, algo)) // Not sure this really a succeed
     }
 

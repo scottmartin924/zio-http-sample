@@ -1,11 +1,17 @@
 # zio-http-sample
+> :warning: **Nobody should think anything here is "correct".**
+
 This is a sample web app meant to experiment with the following technologies:
 
 - [zio-http](https://github.com/dream11/zio-http)
 - [doobie](https://tpolecat.github.io/doobie/)
 - [circe](https://circe.github.io/circe/)
 
-> :warning: **Nobody should think anything here is "correct".**
+It contains (in some shape or form) the following functionalities:
+- Connect to and run SQL statements in a database
+- Log requests and SQL statements
+- Authenticate and authorize requests (using very primitive JWT implementation but easily changed)
+- Pull configuration from an external file (using zio-config; for the moment just a .properties file but could change)
 
 ## Getting Started
 Before starting the web app you'll need a local postgres instance running and then execute [db_setup.sql](src/main/resources/db_setup.sql).
@@ -24,7 +30,7 @@ JWT on the `X-Access-Token` header. To get a JWT use the `POST /login` endpoint 
 or any of the other username/password pairs from `db_setup.sql`
 
 ### Endpoints
-The exposed endpoints with sample requests and required roles (see [Roles](#roles) for more info) are given below:
+The exposed endpoints and required roles (see [Roles](#roles) for more info) are given below:
 
 - `POST /login`
 ```json

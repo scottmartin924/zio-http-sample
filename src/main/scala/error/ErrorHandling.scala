@@ -26,7 +26,6 @@ object ErrorHandling {
     .as(Response.json(ErrorResponse(code = "invalid-request", details = s"Failed to deserialize body: $err".some).asJson.noSpaces).setStatus(Status.BAD_REQUEST))
 
   // FIXME This should be middleware
-  // FIXME I really don't think this should require an environment type parameter, but I can't seem to make it go away
   /**
    *
    * @param req the request
@@ -36,6 +35,7 @@ object ErrorHandling {
    * @tparam R the environment type for success
    * @return
    */
+  // FIXME I really don't think this should require an environment type parameter, but I can't seem to make it go away
   def bodyParser[A, R](req: Request, success: A => ZIO[R, Throwable, Response])(implicit decoder: Decoder[A]): ZIO[R with Logging, Throwable, Response] = {
     req.getBodyAsString.flatMap { body =>
       parser.decode[A](body) match {

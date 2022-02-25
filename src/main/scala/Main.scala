@@ -8,7 +8,6 @@ import zio.blocking._
 import configuration.ApplicationConfig._
 import configuration.{ApplicationConfig, LoggingConfiguration}
 import controller.TodoController
-import controller.TodoController.TodoControllerEnv
 import error.ErrorHandling.{BusinessException, bodyParser, exceptionHandler}
 import pdi.jwt.JwtClaim
 import resource.{Todo, UserCredential}
@@ -32,7 +31,7 @@ object Main extends App {
    */
 
   val login = Http.collectZIO[Request] {
-    case req @ Method.POST -> !! / "login" => bodyParser[UserCredential, AuthServiceEnv](req, Authentication.createJwt)
+    case req @ Method.POST -> !! / "login" => log.info(s"Login request") *> bodyParser[UserCredential, AuthServiceEnv](req, Authentication.createJwt)
   }
 
   // NOTE: Could use #!# as an alias for *> basically or come up with another operator if we need something more specific
@@ -40,8 +39,8 @@ object Main extends App {
     case Method.GET -> !! / "todo" => roles("admin" or "supervisor") *> TodoController.getAll
     case Method.GET -> !! / "todo" / id => TodoController.getById(id)
     case Method.DELETE -> !! / "todo" / id => roles("admin") *> roles("admin" or "") *> TodoController.delete(id)
-    case req @ Method.POST -> !! / "todo" => roles("admin" or "supervisor") *> bodyParser[Todo, TodoControllerEnv](req, TodoController.create)
-    case req @ Method.PATCH -> !! / "todo" / id => roles("admin") *> bodyParser[Todo, TodoControllerEnv](req, TodoController.update(id, _))
+    case req @ Method.POST -> !! / "todo" => roles("admin" or "supervisor") *> bodyParser[Todo, Has[TodoController.Service] with Logging](req, TodoController.create)
+    case req @ Method.PATCH -> !! / "todo" / id => roles("admin") *> bodyParser[Todo, Has[TodoController.Service] with Logging](req, TodoController.update(id, _))
   }
 
   override def run(args: List[String]): URIO[zio.ZEnv, ExitCode] = {

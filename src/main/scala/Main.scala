@@ -36,10 +36,10 @@ object Main extends App {
   // NOTE: Could use #!# as an alias for *> basically or come up with another operator if we need something more specific
   def app(implicit jwt: JwtClaim) = Http.collectZIO[Request] {
     case Method.GET -> !! / "todo" => roles("admin" or "supervisor") *> TodoController.getAll
-    case Method.GET -> !! / "todo" / id => TodoController.getById(id)
-    case Method.DELETE -> !! / "todo" / id => roles("admin") *> roles("admin" or "") *> TodoController.delete(id)
+    case Method.GET -> !! / "todo" / long(id) => TodoController.getById(id)
+    case Method.DELETE -> !! / "todo" / long(id) => roles("admin") *> roles("admin" or "") *> TodoController.delete(id)
     case req @ Method.POST -> !! / "todo" => roles("admin" or "supervisor") *> bodyParser[Todo](req) >>= TodoController.create
-    case req @ Method.PATCH -> !! / "todo" / id => roles("admin") *> bodyParser[Todo](req).flatMap(TodoController.update(id, _)) // NOTE: I'm not sure why but >>= w/ the the partial application fails here
+    case req @ Method.PATCH -> !! / "todo" / long(id) => roles("admin") *> bodyParser[Todo](req).flatMap(TodoController.update(id, _)) // NOTE: I'm not sure why but >>= w/ the the partial application fails here
   }
 
   override def run(args: List[String]): URIO[zio.ZEnv, ExitCode] = {

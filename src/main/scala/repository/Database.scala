@@ -9,7 +9,7 @@ import zio.blocking.Blocking
 import zio.interop.catz._
 import zio.{Has, Task, ZIO, ZLayer, ZManaged}
 
-object Database {
+object eDatabase {
   object Connection {
     type TransactorEnv = Has[Transactor[Task]]
 

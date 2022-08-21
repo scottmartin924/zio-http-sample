@@ -1,8 +1,10 @@
 /target
 /logs
 /datadog_logs
-/.idea
-/.metals
-/.metals/
+.idea
+.metals/
 /project/**/target
 project/.bloop
+.bloop/
+project/project/
+

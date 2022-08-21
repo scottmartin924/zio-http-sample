@@ -1,8 +1,8 @@
 import sbt.Keys.libraryDependencies
 
-ThisBuild / scalaVersion     := "2.13.8"
-ThisBuild / version          := "0.1.0-SNAPSHOT"
-ThisBuild / organization     := "com.example"
+ThisBuild / scalaVersion := "2.13.8"
+ThisBuild / version := "0.1.0-SNAPSHOT"
+ThisBuild / organization := "com.example"
 ThisBuild / organizationName := "example"
 
 val zioVersion = "1.0.13"
@@ -32,7 +32,8 @@ lazy val root = (project in file("."))
       "io.circe" %% "circe-optics" % "0.14.1",
       "io.circe" %% "circe-generic" % "0.14.1",
       "dev.zio" %% "zio-test" % zioVersion % Test,
-      "io.d11" %% "zhttp-test" % zHttpVersion % Test
+      "io.d11" %% "zhttp-test" % zHttpVersion % Test,
+      "dev.zio" %% "zio-test-sbt" % zioVersion % Test
     ),
     testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework")
   )

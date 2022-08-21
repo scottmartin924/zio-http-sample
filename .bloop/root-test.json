@@ -38,6 +38,7 @@
             "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-generic_2.13/0.14.1/circe-generic_2.13-0.14.1.jar",
             "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-test_2.13/1.0.13/zio-test_2.13-1.0.13.jar",
             "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/d11/zhttp-test_2.13/1.0.0.0-RC22/zhttp-test_2.13-1.0.0.0-RC22.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-test-sbt_2.13/1.0.13/zio-test-sbt_2.13-1.0.13.jar",
             "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-stacktracer_2.13/1.0.13/zio-stacktracer_2.13-1.0.13.jar",
             "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/izumi-reflect_2.13/1.1.3/izumi-reflect_2.13-1.1.3.jar",
             "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-all/4.1.72.Final/netty-all-4.1.72.Final.jar",
@@ -62,6 +63,7 @@
             "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/circe/circe-jawn_2.13/0.14.1/circe-jawn_2.13-0.14.1.jar",
             "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/github/julien-truffaut/monocle-core_2.13/2.1.0/monocle-core_2.13-2.1.0.jar",
             "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/portable-scala/portable-scala-reflect_2.13/1.1.1/portable-scala-reflect_2.13-1.1.1.jar",
+            "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/test-interface/1.0/test-interface-1.0.jar",
             "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/izumi-reflect-thirdparty-boopickle-shaded_2.13/1.1.3/izumi-reflect-thirdparty-boopickle-shaded_2.13-1.1.3.jar",
             "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-buffer/4.1.72.Final/netty-buffer-4.1.72.Final.jar",
             "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/netty/netty-codec/4.1.72.Final/netty-codec-4.1.72.Final.jar",
@@ -193,7 +195,7 @@
         "platform": {
             "name": "jvm",
             "config": {
-                "home": "/Users/scott/Library/Caches/Coursier/arc/https/github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.16%252B8/OpenJDK11U-jdk_x64_mac_hotspot_11.0.16_8.tar.gz/jdk-11.0.16+8/Contents/Home",
+                "home": "/Users/scott/.sdkman/candidates/java/11.0.16-amzn",
                 "options": [
                     "-Duser.dir=/Users/scott/dev/zio-http-sample"
                 ]
@@ -1624,6 +1626,40 @@
                             "name": "zhttp-test_2.13",
                             "classifier": "sources",
                             "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/io/d11/zhttp-test_2.13/1.0.0.0-RC22/zhttp-test_2.13-1.0.0.0-RC22-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "dev.zio",
+                    "name": "zio-test-sbt_2.13",
+                    "version": "1.0.13",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "zio-test-sbt_2.13",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-test-sbt_2.13/1.0.13/zio-test-sbt_2.13-1.0.13.jar"
+                        },
+                        {
+                            "name": "zio-test-sbt_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/dev/zio/zio-test-sbt_2.13/1.0.13/zio-test-sbt_2.13-1.0.13-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-sbt",
+                    "name": "test-interface",
+                    "version": "1.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "test-interface",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/test-interface/1.0/test-interface-1.0.jar"
+                        },
+                        {
+                            "name": "test-interface",
+                            "classifier": "sources",
+                            "path": "/Users/scott/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/test-interface/1.0/test-interface-1.0-sources.jar"
                         }
                     ]
                 }

@@ -21,6 +21,8 @@ import zio.logging._
 import zio.magic._
 import Authentication._
 import authentication.RoleQuery._
+import cats.data.OptionT
+import cats.data.EitherT
 
 object Main extends App {
 
@@ -35,6 +37,8 @@ object Main extends App {
    */
 
   val login = Http.collectZIO[Request] {
+    case Method.GET -> !! / "hello" / name =>
+      ZIO.succeed(Response.text(s"hello, $name"))
     case req @ Method.POST -> !! / "login" =>
       log.info(s"Login request") *> bodyParser[UserCredential](
         req

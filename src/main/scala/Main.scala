@@ -76,18 +76,6 @@ object Main extends App {
     val server =
       Server.start(8080, finalApp.catchAll(exceptionHandler) @@ debug)
 
-    // ZIO 1 way (alright....I can see why zio-magic is nicer)
-//    val config = DatabaseConfig.live ++ WebConfig.live ++ Blocking.live
-//    val transactor = Database.Connection.live >>> Repository.live
-//    val credentialRepo = transactor >>> UserCredentialRepository.live
-//    val authService = (credentialRepo ++ WebConfig.live) >>> AuthenticationService.live
-//    val todoController = ((transactor >>> TodoRepository.live) ++ authService) >>> TodoController.live
-//    val repos = Database.Connection.live >>> Repository.live >>> TodoRepository.live >>> TodoController.live
-//    val env = (config >>> repos) ++ todoController ++ authService  ++ zio.console.Console.live ++ LoggingConfiguration.live
-//    val envWithDebug = env ++ console.Console.live ++ clock.Clock.live
-//
-//    server.provideLayer(envWithDebug).exitCode
-
     // zio-magic way
     val magic = server.inject(
       DatabaseConfig.live,

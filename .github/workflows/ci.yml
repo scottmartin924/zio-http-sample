@@ -24,7 +24,7 @@ jobs:
           distribution: "corretto"
           cache: "sbt"
       - name: Create dist
-        run: sbt clean dist
+        run: sbt clean compile
       # FIXME This generates some warnings
       - name: Run tests
         run: sbt test

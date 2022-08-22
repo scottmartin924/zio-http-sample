@@ -6,9 +6,6 @@ on:
       example:
         required: true
         type: string
-    secrets:
-      hidden:
-        required: true
 
 jobs:
   build:

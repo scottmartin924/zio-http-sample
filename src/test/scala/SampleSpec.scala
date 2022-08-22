@@ -6,7 +6,7 @@ object SampleSpec extends DefaultRunnableSpec {
   override def spec = suite("SampleSpec")(
     testM("succeed") {
       val result = ZIO.succeed(19)
-      assertM(result)(equalTo(20))
+      assertM(result)(equalTo(19))
     }
   )
 }

@@ -1,0 +1,44 @@
+name: CI/CD Pipeline
+
+on: [push]
+
+permissions:
+  contents: read
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      POSTGRES_USER: postgres
+      PGPASSWORD: pwd
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: "11"
+          distribution: "corretto"
+          cache: "sbt"
+      - name: Create dist
+        run: sbt clean dist
+      # FIXME This generates some warnings
+      - name: Run tests
+        run: sbt test
+  deploy-staging:
+    if: github.ref == 'refs/heads/develop'
+    needs: build
+    uses: one-drop/onedrop-api/.github/workflows/called.yml@develop
+    with:
+      to: onedrop-api-test2
+    secrets: inherit
+  deploy-prod:
+    if: github.ref == 'refs/heads/master'
+    needs: build
+    uses: one-drop/onedrop-api/.github/workflows/called.yml@master
+    with:
+      to: onedrop-api-prod
+    secrets: inherit

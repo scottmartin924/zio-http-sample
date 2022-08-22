@@ -10,7 +10,7 @@ env:
 
 jobs:
   call-workflow:
-    uses: scottmartin924/zio-http-sample/.github/workflows/called.yml@master
+    uses: scottmartin924/zio-http-sample/.github/workflows/called.yml@sample-pr-branch
     with:
       example: variable1
     secrets: inherit

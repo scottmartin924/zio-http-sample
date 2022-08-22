@@ -13,5 +13,4 @@ jobs:
     uses: scottmartin924/zio-http-sample/.github/workflows/called.yml@master
     with:
       example: variable1
-    secrets:
-      hidden: ${{ secrets.SAMPLE }}
+    secrets: inherit

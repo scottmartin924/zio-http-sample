@@ -1,0 +1,17 @@
+name: Scala CI
+
+on:
+  workflow_call:
+    inputs:
+      example:
+        required: true
+        type: string
+    secrets:
+      hidden:
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Input=${{ inputs.example }}, secret=${{ secrets.hidden }}, env=${{ env.passedEnv }}"

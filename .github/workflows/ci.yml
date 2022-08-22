@@ -31,14 +31,14 @@ jobs:
   deploy-staging:
     if: github.ref == 'refs/heads/develop'
     needs: build
-    uses: scottmartin924/zio-http-sample/.github/workflows/called.yml@develop
+    uses: ./.github/workflows/called.yml
     with:
       to: test
     secrets: inherit
   deploy-prod:
     if: github.ref == 'refs/heads/master'
     needs: build
-    uses: scottmartin924/zio-http-sample/.github/workflows/called.yml@master
+    uses: ./.github/workflows/called.yml
     with:
       to: prod
     secrets: inherit

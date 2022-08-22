@@ -7,7 +7,7 @@ on:
 
 jobs:
   call-workflow:
-    uses: scottmartin924/zio-http-sample/.github/workflows/called.yml@develop
+    uses: scottmartin924/zio-http-sample/.github/workflows/called.yml
     env:
       passedEnv: environment-variable
     with:

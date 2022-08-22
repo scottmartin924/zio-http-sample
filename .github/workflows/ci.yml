@@ -6,8 +6,8 @@ permissions:
   contents: read
 
 env:
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.SAMPLE }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.SAMPLE_2 }}
 
 jobs:
   build:
@@ -31,14 +31,14 @@ jobs:
   deploy-staging:
     if: github.ref == 'refs/heads/develop'
     needs: build
-    uses: one-drop/onedrop-api/.github/workflows/called.yml@develop
+    uses: scottmartin924/zio-http-sample/.github/workflows/called.yml@develop
     with:
-      to: onedrop-api-test2
+      to: test
     secrets: inherit
   deploy-prod:
     if: github.ref == 'refs/heads/master'
     needs: build
-    uses: one-drop/onedrop-api/.github/workflows/called.yml@master
+    uses: scottmartin924/zio-http-sample/.github/workflows/called.yml@master
     with:
-      to: onedrop-api-prod
+      to: prod
     secrets: inherit

@@ -19,5 +19,5 @@ jobs:
       abc: ${{ secrets.hidden }}
       def: ${{ secrets.another }}
     steps:
-      - run: echo "Run id=${{ github.run_id }}, run num=${{ github.run_number }}"
+      - run: echo "Run id=${{ github.run_id }}, run num=${{ github.run_number }}."
       - run: echo "Input=${{ inputs.example }}, secret=${{ secrets.hidden }}, env=${{ env.abc }}, ${{ env.def }}"

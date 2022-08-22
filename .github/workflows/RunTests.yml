@@ -13,4 +13,6 @@ jobs:
     uses: scottmartin924/zio-http-sample/.github/workflows/called.yml@sample-pr-branch
     with:
       example: variable1
-    secrets: inherit
+    secrets:
+      hidden: ${{ secrets.SAMPLE }}
+      another: ${{ secrets.SAMPLE_2 }}

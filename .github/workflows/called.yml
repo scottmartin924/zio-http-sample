@@ -6,9 +6,17 @@ on:
       example:
         required: true
         type: string
+    secrets:
+      hidden:
+        required: true
+      another:
+        required: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      abc: ${{ secrets.hidden }}
+      def: ${{ secrets.another }}
     steps:
-      - run: echo "Input=${{ inputs.example }}, secret=${{ secrets.hidden }}, env=${{ env.passedEnv }}"
+      - run: echo "Input=${{ inputs.example }}, secret=${{ secrets.hidden }}, env=${{ env.abc }}, ${{ env.def }}"

@@ -5,11 +5,12 @@ on:
     branches:
       - "sample-pr-branch"
 
+env:
+  passedEnv: environment-variable
+
 jobs:
   call-workflow:
     uses: scottmartin924/zio-http-sample/.github/workflows/called.yml@master
-    env:
-      passedEnv: environment-variable
     with:
       example: variable1
     secrets:

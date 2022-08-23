@@ -19,6 +19,7 @@ jobs:
     steps:
       - name: Output
         run: |
+          echo $(ls)
           echo "Input=${{ inputs.to }}, 
           echo "aws_access_key=${{ secrets.AWS_ACCESS_KEY_ID }}", aws_secret_access_key_env=${{ env.AWS_ACCESS_KEY_ID }}"
           echo "aws_secret_access_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}", aws_secret_access_key_env=${{ env.AWS_SECRET_ACCESS_KEY }}

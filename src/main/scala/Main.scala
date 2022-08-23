@@ -48,7 +48,7 @@ object Main extends App {
   // NOTE: Could use #!# as an alias for *> basically or come up with another operator if we need something more specific
   def app(implicit jwt: JwtClaim) = Http.collectZIO[Request] {
     case Method.GET -> !! / "todo" =>
-      roles("admin" or "supervisor") *> TodoController.getAll
+      roles("admin" || "supervisor") *> TodoController.getAll
     case Method.GET -> !! / "todo" / long(id) => TodoController.getById(id)
     case Method.DELETE -> !! / "todo" / long(id) =>
       roles("admin") *> roles("admin" or "") *> TodoController.delete(id)

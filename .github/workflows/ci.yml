@@ -28,6 +28,11 @@ jobs:
       # FIXME This generates some warnings
       - name: Run tests
         run: sbt test
+      - name: Store compiled artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: target/universal/onedrop-api-1.0-SNAPSHOT.zip
       - name: Test
         run: echo $(ls)
   deploy-staging:

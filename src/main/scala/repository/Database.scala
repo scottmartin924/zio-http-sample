@@ -30,7 +30,7 @@ object Database {
             rt.platform.executor.asEC, // await connection here
             Blocker.liftExecutionContext(
               be.asEC
-            ) // execute JDBC operations here
+            ) // execute JDBC operations here.
           )
           .toManagedZIO
       } yield xa

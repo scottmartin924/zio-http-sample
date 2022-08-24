@@ -5,6 +5,10 @@ on: [push]
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.SAMPLE }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.SAMPLE_2 }}

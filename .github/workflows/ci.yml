@@ -47,7 +47,7 @@ jobs:
       - name: Test
         run: echo $(ls)
   deploy-staging:
-    # if: github.ref == 'refs/heads/develop'
+    if: github.ref == 'refs/heads/develop'
     needs: build
     uses: ./.github/workflows/called.yml
     with:

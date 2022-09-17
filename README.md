@@ -81,5 +81,4 @@ modify the `roles` zio that's created before running the `TodoController` functi
 ```scala
 case Method.GET -> !! / "todo" => roles("admin" or "supervisor") *> TodoController.getAll
 ```
-
 means that `GET /todo` requires an `admin` or `supervisor` role. Feel free to edit, remove, modify as you see fit.
